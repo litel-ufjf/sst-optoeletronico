@@ -1,0 +1,52 @@
+Cada dia foram feitas 4 rodadas de medição onde cada rodada possui:
+
+1_4.txt possui dados com as amostras da solução de água e sal na porporção 1:4
+1_5.txt possui dados com as amostras da solução de água e sal na porporção 1:5
+agua.txt possui dados com as amostras de água
+sst.txt possui dados com as amostras da solução padrão de sst em 50 mg/L
+vazio.txt dados com as cuvetas a seco 
+
+
+O modelo dos dados nos arquivos de texto são:
+
+Timestamp	Cur90	Avg90	Cur135	Avg135
+1789488559.773826	1.0291	1.0291	1.0357	1.0357
+1789488559.893774	1.0291	1.0291	1.0357	1.0357
+1789488560.104947	1.0291	1.0291	1.0357	1.0357
+
+Timestamp é o Timestamp.
+Onde Cur90 é a corrente do fotodetector que posicionado a 90 graus do led
+Onde Avg90 é a média da corrente do fotodetector que posicionado a 90 graus do led
+Onde Cur135 é a corrente do fotodetector que posicionado a 135 graus do led
+Onde Avg135 é a corrente do fotodetector que posicionado a 135 graus do led
+
+
+A arquitetura do projeto de análise de dados é
+.
+├── data/    
+│   ├── processed                                         
+│   │   └──  14-09-2026
+|   | 		 ├── 01
+|   |            |  ├── 1_4.txt
+|   |            |  ├── 1_5.txt
+|   |            |  ├── agua.txt
+|   |            |  ├── sst.txt
+|   |            |  └── vazio.txt          
+│   │           └── ... 
+│   │
+|   └── raw                                        
+│   │   └──  14-09-2026
+|   | 		 ├── 01
+|   |            |  ├── 1_4.txt
+|   |            |  ├── 1_5.txt
+|   |            |  ├── agua.txt
+|   |            |  ├── sst.txt
+|   |            |  └── vazio.txt          
+│   │           └── ...                                         
+ 
+├── notebooks/
+│   ├── 01_varredura.ipynb  				 # Notebook 1
+│   └── 02_calibracao.ipynb     			 # Notebook 2
+├── run_batch_processing.py                 # Script de pré-processamento e execução em lote
+├── .gitignore                              # Controle de arquivos ignorados no repositório
+└── README.md

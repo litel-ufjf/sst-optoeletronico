@@ -1,0 +1,10 @@
+venv
+.venv/
+data/raw/*
+data/processed/*
+
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+*.xlsx
+*.csv
